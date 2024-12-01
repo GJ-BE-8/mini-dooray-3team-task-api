@@ -6,6 +6,7 @@ import com.nhnacademy.minidooray3teamaccountapi.exception.ResourceNotFoundExcept
 import com.nhnacademy.minidooray3teamaccountapi.service.CommentService;
 import java.util.List;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,7 +24,7 @@ public class CommentController {
     }
 
     // 코멘트 생성
-    @PostMapping
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<CommentResponseDTO> createComment(
             @PathVariable Long projectId,
             @PathVariable Long taskId,
